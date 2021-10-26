@@ -30,5 +30,5 @@ module "linux-server" {
 }
 
 output "PublicIP" {
-    value = modules.linux-server.azurerm_public_ip.publicip.*.ip_address
+    value = module.linux-server.azurerm_public_ip.publicip.*.ip_address
 }
