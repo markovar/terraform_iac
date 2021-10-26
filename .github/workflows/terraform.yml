@@ -41,12 +41,14 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
-      - uses: hashicorp/setup-terraform@v1
-      - run: terraform init
-
-      - id: plan
-        run: terraform plan -no-color
-      - run: echo ${{ steps.plan.outputs.stdout }}
-      - run: echo ${{ steps.plan.outputs.stderr }}
-      - run: echo ${{ steps.plan.outputs.exitcode }}
+      - name: Terraform Init
+        uses: hashicorp/setup-terraform@v1
+        run: terraform init
+      
+      - name: Terraform Plan
+        uses: hashicorp/setup-terraform@v1
+        run: |
+          terraform plan -no-color
+          echo ${{ steps.plan.outputs.stdout }}
+          echo ${{ steps.plan.outputs.stderr }}
+          echo ${{ steps.plan.outputs.exitcode }}
