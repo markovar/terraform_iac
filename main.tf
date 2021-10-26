@@ -28,3 +28,7 @@ module "linux-server" {
   environment      = "dev"
   cantidad-servers = 1
 }
+
+output "PublicIP" {
+    value = modules.linux-server.azurerm_public_ip.publicip.*.ip_address
+}
