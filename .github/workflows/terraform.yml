@@ -45,10 +45,3 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         run: terraform init
       
-      - name: Terraform Plan
-        uses: hashicorp/setup-terraform@v1
-        run: |
-          terraform plan -no-color
-          echo ${{ steps.plan.outputs.stdout }}
-          echo ${{ steps.plan.outputs.stderr }}
-          echo ${{ steps.plan.outputs.exitcode }}
