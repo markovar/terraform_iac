@@ -17,13 +17,13 @@ provider "azurerm" {
   features {}
 }
 
-variable "linux_password" {
+variable "LINUX_PASSWORD" {
   sensitive = true
 }
 
 module "linux-server" {
   source           = "./modules/linux-server"
-  linux-password   = var.linux_password
+  linux-password   = var.LINUX_PASSWORD
   linux-user       = "adminfrb03"
   environment      = "dev"
   cantidad-servers = 1
